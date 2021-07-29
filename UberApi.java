@@ -1,4 +1,5 @@
 /*
+
 Prompt: Design Uber API 
 
 Entities: 
@@ -45,10 +46,10 @@ Input: passenger entity, Ride entity
 Output: Ride entity 
 
 Java
-public static Ride requestRide(Passenger passenger, Ride ride){
+public static Ride requestRide(passenger_.id, Location pickUp, Location dropOff){
     //validate args, return any errors
-    //store Ride entity in database
-    //call a helper method for matching passenger with ride (async operation)
+    //create a new Ride entity w/ passenger_.id, pickup/dropoff and store Ride entity in database
+    //call a helper method for matching passenger with driver (async operation)
     //return a Ride object w/ driverId
 }
 
@@ -89,9 +90,10 @@ GET: get a new ride
 Input:
 Output: Ride entity 
 
-public static Ride getNewRide(){
+public static Ride getNewRide(Integer driver_.id){
+    //query DB using driver_.id to get driver including driver status 
     //query DB table of queued rides
-    //calls helper method for confirming the driver
+    //calls helper method for confirming the driver will take the available ride
     //returns Ride entity
 }
 
@@ -110,4 +112,5 @@ public static Ride cancelRide(Integer ride_.id){
     //sends a notification to the user that ride is cancelled
     //puts ride_.id back into the queue for matching with an available driver
 }
+
 /*
